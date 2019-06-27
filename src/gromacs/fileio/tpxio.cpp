@@ -2170,6 +2170,12 @@ void do_iparams(t_fileio *fio, t_functype ftype, t_iparams *iparams,
             gmx_fio_do_real(fio, iparams->pdihs.phiA);
             gmx_fio_do_real(fio, iparams->pdihs.cpA);
             break;
+        case F_CROSS_BOND_DIHED:
+            gmx_fio_do_real(fio,iparams->cross_bd.rA);
+            gmx_fio_do_real(fio,iparams->cross_bd.phiA);
+            gmx_fio_do_real(fio,iparams->cross_bd.k);
+            gmx_fio_do_int(fio,iparams->cross_bd.mult);
+            break;
         case F_DISRES:
             gmx_fio_do_int(fio, iparams->disres.label);
             gmx_fio_do_int(fio, iparams->disres.type);

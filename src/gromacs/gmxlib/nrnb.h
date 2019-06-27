@@ -117,7 +117,7 @@ enum
     eNR_VSITE3FAD,            eNR_VSITE3OUT,            eNR_VSITE4FD,
     eNR_VSITE4FDN,            eNR_VSITEN,               eNR_GB,
     eNR_CMAP,                 eNR_UREY_BRADLEY,         eNR_CROSS_BOND_BOND,
-    eNR_CROSS_BOND_ANGLE,
+    eNR_CROSS_BOND_ANGLE,     eNR_CROSS_BOND_DIHED,
     eNRNB
 };
 

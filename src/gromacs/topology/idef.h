@@ -48,7 +48,7 @@ extern "C" {
 #endif
 
 /* check kernel/toppush.c when you change these numbers */
-#define MAXATOMLIST 6
+#define MAXATOMLIST 8
 #define MAXFORCEPARAM   12
 #define NR_RBDIHS   6
 #define NR_CBTDIHS   6
@@ -86,6 +86,7 @@ enum {
     F_IDIHS,
     F_PIDIHS,
     F_TABDIHS,
+    F_CROSS_BOND_DIHED,
     F_CMAP,
     F_GB12,
     F_GB13,
@@ -188,6 +189,9 @@ typedef union t_iparams
     struct {
         real r1e, r2e, r3e, krt;
     } cross_ba;
+    struct {
+        real rA,phiA,k; int mult;
+    } cross_bd;
     struct {
         real thetaA, kthetaA, r13A, kUBA, thetaB, kthetaB, r13B, kUBB;
     } u_b;

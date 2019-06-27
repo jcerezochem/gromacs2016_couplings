@@ -314,6 +314,12 @@ assign_param(t_functype ftype, t_iparams *newparam,
             newparam->pdihs.mult = round_check(old[2], -99, ftype, "multiplicity");
 
             break;
+        case F_CROSS_BOND_DIHED:
+            newparam->cross_bd.rA   =old[0];
+            newparam->cross_bd.phiA =old[1];
+            newparam->cross_bd.k    =old[2];
+            newparam->cross_bd.mult =old[3];
+            break;
         case F_RESTRDIHS:
             newparam->pdihs.phiA = old[0];
             newparam->pdihs.cpA  = old[1];

@@ -254,6 +254,7 @@ void print_bt(FILE *out, directive d, gpp_atomtype_t at,
         case F_PDIHS:
         case F_RBDIHS:
         case F_FOURDIHS:
+        case F_CROSS_BOND_DIHED:
             bDih = TRUE;
             break;
         case F_IDIHS:

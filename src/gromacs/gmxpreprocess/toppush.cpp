@@ -1783,7 +1783,9 @@ void push_bond(directive d, t_params bondtype[], t_params bond[],
         "%d%d%d%d",
         "%d%d%d%d%d",
         "%d%d%d%d%d%d",
-        "%d%d%d%d%d%d%d"
+        "%d%d%d%d%d%d%d",
+        "%d%d%d%d%d%d%d%d",
+        "%d%d%d%d%d%d%d%d%d"
     };
     const char  *asformat[MAXATOMLIST] = {
         "%*s%*s",
@@ -1791,7 +1793,9 @@ void push_bond(directive d, t_params bondtype[], t_params bond[],
         "%*s%*s%*s%*s",
         "%*s%*s%*s%*s%*s",
         "%*s%*s%*s%*s%*s%*s",
-        "%*s%*s%*s%*s%*s%*s%*s"
+        "%*s%*s%*s%*s%*s%*s%*s",
+        "%*s%*s%*s%*s%*s%*s%*s%*s",
+        "%*s%*s%*s%*s%*s%*s%*s%*s%*s"
     };
     const char  *ccformat = "%lf%lf%lf%lf%lf%lf%lf%lf%lf%lf%lf%lf%lf";
     int          nr, i, j, nral, nral_fmt, nread, ftype;
@@ -1827,7 +1831,7 @@ void push_bond(directive d, t_params bondtype[], t_params bond[],
     }
 
     nread = sscanf(line, aaformat[nral_fmt-1],
-                   &aa[0], &aa[1], &aa[2], &aa[3], &aa[4], &aa[5]);
+                   &aa[0], &aa[1], &aa[2], &aa[3], &aa[4], &aa[5], &aa[6], &aa[7], &aa[8], &aa[9]);
 
     if (ftype == F_SETTLE)
     {
@@ -1884,7 +1888,15 @@ void push_bond(directive d, t_params bondtype[], t_params bond[],
             if (aa[i] == aa[j])
             {
                 sprintf(errbuf, "Duplicate atom index (%d) in %s", aa[i], dir2str(d));
-                warning(wi, errbuf);
+                /* Make this check a NOTE for coupling terms (JC, 27/06/2019, adapted from v4.5.5coup) */
+                if (ftype == F_CROSS_BOND_DIHED)
+                {
+                    warning_note(wi, errbuf);
+                }
+                else
+                {
+                    warning(wi, errbuf);
+                }
             }
         }
     }

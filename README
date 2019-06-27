@@ -1,3 +1,25 @@
+---------------------------------
+NOTES ON THE MODIFIED VERSION
+---------------------------------
+
+This version is built on the released 4.5.5 version and, with respect to
+that one, this modification includes additional intramolecular potential 
+terms coupling two internal coordinates. The new potentials are defined
+in the topology files. The following ones are implemented (for the moment):
+
+[ bo_di ] ; coupling between harmonic bond and flexible dihedral
+; i1 i2        j1 j2 j3 j4   ft   r0   phi0   kij   nj  
+
+Further details on the functional form of these couplings can be found at:
+Cerezo, J.; Prampolini, G. & Cacelli, I. "Developing accurate intramolecular 
+force fields for conjugated systems through explicit coupling terms"
+Theor. Chem. Acc., 2018, 137, 80
+URL: https://doi.org/10.1007/s00214-018-2254-8
+
+
+---------------------------------
+NOTES ON THE OFICIAL VERSION
+---------------------------------
 
                Welcome to the official version of GROMACS!
 
